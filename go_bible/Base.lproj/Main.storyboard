@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1LM-0R-aG8">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Go Bible-->
+        <scene sceneID="QKo-Qz-mhS">
+            <objects>
+                <tableViewController id="CkR-Q7-Cu0" customClass="bookListTableViewController" customModule="go_bible" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="UjW-UV-PsQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookCell" id="VMK-gg-zyp">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VMK-gg-zyp" id="fkl-En-Vfo">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="CkR-Q7-Cu0" id="4e8-jP-rHL"/>
+                            <outlet property="delegate" destination="CkR-Q7-Cu0" id="xvr-CU-VZo"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Go Bible" id="hnj-pW-aRU">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="IZl-zA-ViB"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="m8u-Ia-L6j">
+                            <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="tQ5-tg-NfD">
+                                <rect key="frame" x="308" y="6.5" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
+                        </barButtonItem>
+                        <connections>
+                            <outlet property="titleView" destination="UjW-UV-PsQ" id="baQ-RY-OOb"/>
+                        </connections>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="sortBooks" destination="tQ5-tg-NfD" id="2qD-wX-QPj"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mtk-MQ-Bhi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-458.39999999999998" y="-54.422788605697157"/>
+        </scene>
+        <!--Read Book-->
+        <scene sceneID="Rcd-Ww-7GE">
+            <objects>
+                <viewController storyboardIdentifier="readBook" id="V0F-uE-Oas" customClass="readBook" customModule="go_bible" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="McH-ZJ-tYK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k2E-gh-ENC">
+                                <rect key="frame" x="16" y="31" width="343" height="616"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZAD-Zn-LGE">
+                                        <rect key="frame" x="8" y="8" width="327" height="600"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ZAD-Zn-LGE" firstAttribute="top" secondItem="k2E-gh-ENC" secondAttribute="topMargin" id="2GQ-b8-2AY"/>
+                                    <constraint firstItem="ZAD-Zn-LGE" firstAttribute="centerX" secondItem="k2E-gh-ENC" secondAttribute="centerX" id="5Vx-xb-9EI"/>
+                                    <constraint firstItem="ZAD-Zn-LGE" firstAttribute="centerY" secondItem="k2E-gh-ENC" secondAttribute="centerY" id="LfL-dT-Jjw"/>
+                                    <constraint firstItem="ZAD-Zn-LGE" firstAttribute="trailing" secondItem="k2E-gh-ENC" secondAttribute="trailingMargin" id="MQP-zs-PhO"/>
+                                    <constraint firstItem="ZAD-Zn-LGE" firstAttribute="bottom" secondItem="k2E-gh-ENC" secondAttribute="bottomMargin" id="bFI-ST-lBA"/>
+                                    <constraint firstItem="ZAD-Zn-LGE" firstAttribute="leading" secondItem="k2E-gh-ENC" secondAttribute="leadingMargin" id="lXm-dp-vJT"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="k2E-gh-ENC" firstAttribute="leading" secondItem="McH-ZJ-tYK" secondAttribute="leadingMargin" id="0GS-yS-MyV"/>
+                            <constraint firstItem="k2E-gh-ENC" firstAttribute="top" secondItem="bFd-QO-9wk" secondAttribute="top" constant="11" id="TdP-cY-QoO"/>
+                            <constraint firstAttribute="bottom" secondItem="k2E-gh-ENC" secondAttribute="bottom" constant="20" symbolic="YES" id="hUA-QV-btP"/>
+                            <constraint firstItem="k2E-gh-ENC" firstAttribute="trailing" secondItem="McH-ZJ-tYK" secondAttribute="trailingMargin" id="paS-ln-CxI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bFd-QO-9wk"/>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="ZAD-Zn-LGE" id="zfp-5N-uS4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HIA-ZN-GRj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="764" y="-54.422788605697157"/>
+        </scene>
+        <!--NavController-->
+        <scene sceneID="SAD-Cn-5BR">
+            <objects>
+                <navigationController title="NavController" id="1LM-0R-aG8" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FwI-aC-WGC">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="CkR-Q7-Cu0" kind="relationship" relationship="rootViewController" id="nck-JB-UbM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XkI-11-SNS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1410" y="-54"/>
+        </scene>
+    </scenes>
+</document>
