@@ -176,7 +176,3 @@ class bookListTableViewController: UITableViewController {
         self.switchScreen(bookTitle: books[indexPath.row])
     }
 }
-
-
-
-

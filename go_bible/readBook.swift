@@ -27,7 +27,35 @@ class readBook: UIViewController {
         let previousChapterButton = UIBarButtonItem(barButtonSystemItem: .rewind, target: self, action: #selector(goBackChapter))
         let searchButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchChapter))
         
-        navigationItem.rightBarButtonItems = [nextChapterButton, previousChapterButton, searchButton]
+        let changeFont = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(increaseFontSize))
+  
+        
+        navigationItem.rightBarButtonItems = [nextChapterButton, previousChapterButton, searchButton, changeFont]
+    }
+    
+    @objc func increaseFontSize(){
+        
+        let alert = UIAlertController(title: "Enter desired font size", message: "Current font size: " + textView.font!.pointSize.description, preferredStyle: UIAlertController.Style.alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: { (action: UIAlertAction!) in })
+        
+        let saveAction = UIAlertAction(title: "Save", style: .default, handler: { (action: UIAlertAction!) in
+            
+            let textField = alert.textFields![0] as UITextField
+            textField.keyboardType = UIKeyboardType.numberPad
+
+            guard let n = NumberFormatter().number(from: textField.text!) else { return }
+            self.textView.font = .systemFont(ofSize: CGFloat(truncating: n))
+        })
+        
+        alert.addTextField(configurationHandler: { textField in
+            textField.keyboardType = UIKeyboardType.numberPad
+        })
+        
+        alert.addAction(cancelAction)
+        alert.addAction(saveAction)
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     // Gets next or previous chapter
@@ -40,7 +68,6 @@ class readBook: UIViewController {
             self.navigationItem.title = bookTitle +  " " + String(targetChapter)
         }
     }
-
     
     @objc func goNextChapter(sender: UIButton!) {
         gotoChapter(targetChapter: Int(chapterNum)!  + 1)
